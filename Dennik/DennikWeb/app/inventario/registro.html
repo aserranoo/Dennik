@@ -1,0 +1,77 @@
+﻿<section id="inventario-view" class="mainbar" data-ng-controller="registro as vm">
+    <section class="matter">
+        <div class="container">
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <div class="widget wviolet">
+                        <div data-cc-widget-header title="Inventario" allow-collapse="true"></div>
+                        <div class="widget-content ui-widget-content">
+                            <div class="form-group" data-ng-show="!vm.hideSpin">
+                                <i class="fa fa-spin fa-spinner fa-2x fa-fw pull-right"></i>
+                            </div>
+                            <table class="table table-responsive table-striped" data-ng-show="vm.hideSpin">
+                                <thead>
+                                    <tr>
+                                        <th>IdProducto</th>
+                                        <th>Descripcion</th>
+                                        <th>Cantidad</th>
+                                        <th>Bloqueado</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-ng-repeat="info in vm.articulos">
+                                        <td>{{ info.ArticuloId}}</td>
+                                        <td>{{ info.Art.Descripcion}}</td>
+                                        <td>{{ info.Art.Cantidad}}</td>
+                                        <td><i ng-class="info.Art.Bloqueado ? 'fa fa-check fa-fw': 'fa fa-times fa-fw'"></i>
+                                        <td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <form name="registroA" novalidate>
+                        <div class="form-horizontal col-md-12">
+                            <h2 class="h2">Registro Inventario</h2>
+                            <div class="form-group col-md-8">
+                                <div class="input-group">
+                                    <input type="number" class="form-control" placeholder="Código de Producto" data-ng-model="vm.articulosModel.ArticuloId" />
+                                    <span class="input-group-addon"><i class="fa fa-search fa-fw" style="cursor:pointer"></i></span>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <div class="form-group col-md-6">
+                                    <label>Descripción</label>
+                                    <div class="input-group-sm" ng-class="{'has-error': (registroA.descripcion.$invalid && !registroA.descripcion.$pristine) || (registro.descripcion.$invalid && !registro.descripcion.$error.pattern)}">
+                                        <input type="text" class="form-control" name="descripcion" placeholder="Descripción" data-ng-model="vm.articulosModel.Art.Descripcion" ng-required="true" ng-pattern="/^([A-Za-z\s])*$/"/>
+                                        <span class="help-block" data-ng-show="(registroA.descripcion.$invalid && !registroA.descripcion.$pristine) ? true : false">Es necesario especificar la descirpción</span>                                        
+                                        <span class="help-block" data-ng-show="(registroA.descripcion.$invalid && registroA.descripcion.$error.pattern) ? true : false">Solo son validos letras</span>                                        
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>Cantidad</label>
+                                    <div class="input-group-sm">
+                                        <input type="number" class="form-control" data-ng-model="vm.articulosModel.Art.Cantidad" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label>Producto Bloqueado</label>
+                                <div class="input-group">
+                                    <input type="checkbox" data-ng-model="vm.articulosModel.Art.Bloqueado" />
+                                </div>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <div class="input-group-btn">
+                                    <button class="form-control btn btn-success" ng-disabled="!registroA.$valid? true:false" data-ng-click="vm.registroArticulo(vm.articulosModel.Art)">Agregar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

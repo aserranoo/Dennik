@@ -1,0 +1,30 @@
+﻿<section id="inventario-view" class="mainbar" data-ng-controller="registro as vm">
+    <section class="matter">
+        <div class="container">
+            <div class="row">
+                <div class="form-group-lg">
+                    <div class="widget wviolet">
+                        <div data-cc-widget-header title="Inventario" allow-collapse="true"></div>
+                        <div class="widget-content ui-widget-content">
+                            <table class="table table-responsive table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>IdProducto</th>
+                                        <th>Descripcion</th>
+                                        <th>Cantidad</th>
+                                        <th>Bloqueado</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td data-ng-repeat="info in vm.Articulos"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

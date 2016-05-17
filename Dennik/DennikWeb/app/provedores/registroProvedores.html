@@ -1,0 +1,40 @@
+﻿<section id="provedores-view" class="mainbar" data-ng-controller="registroProvedores as vm">
+    <section class="matter">
+        <div class="container">
+            <div class="row">
+                <div class="form-group">
+                    <div class="widget wlightblue">
+                        <div data-cc-widget-header title="Provedores" allow-collapse="true"></div>
+                        <div class="widget widget-content ui-widget-content">
+                            <div class="form-group" data-ng-show="!vm.hideSpin">
+                                <i class="fa fa-spin fa-spinner fa-2x fa-fw pull-right"></i>
+                            </div>
+                            <table class="table table-responsive table-striped" data-ng-show="vm.hideSpin">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>RFC</th>
+                                        <th>Dirección</th>
+                                        <th>Teléfono</th>
+                                        <th>Fecha de Registro</th>
+                                        <th>Correo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-ng-repeat="pr in vm.provedores">
+                                        <td>{{pr.Nombre}}</td>
+                                        <td>{{pr.RFC}}</td>
+                                        <td>{{pr.Direccion}}</td>
+                                        <td>{{pr.Telefono}}</td>
+                                        <td>{{pr.FechaRegistro}}</td>
+                                        <td>{{pr.Correo}}</td>
+                                    </tr>                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
